@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React, { useEffect, useState } from "react";
 import { MdKeyboardDoubleArrowRight } from "react-icons/md";
 import { MdKeyboardDoubleArrowLeft } from "react-icons/md";
@@ -7,24 +7,24 @@ import { sleep } from "../_lib/helpers";
 import useScreenSize from "../_hooks/useScreenSize";
 
 const CustomPointer = () => {
-  const { width,height } = useScreenSize();
+  const { width, height } = useScreenSize();
   const [position, setPosition] = useState({
-    x:  width / 2,
-    y:  height / 2,
+    x: width / 2,
+    y: height / 2,
   });
   const [isFirstTime, setIsFirstTime] = useState(true);
-  const showCondition = position.x < width - 150;
+  const showCondition = position.x < width - 150 && position.y < height - 200;
 
   // Track the mouse position
   useEffect(() => {
-    const handleMouseMove = async (e: MouseEvent) => {      
+    const handleMouseMove = async (e: MouseEvent) => {
       await sleep(50);
       setPosition({ x: e.clientX, y: e.clientY });
       setIsFirstTime(false);
     };
 
     if (width < 768) {
-      if(position.x === 100 && position.y === 50) return
+      if (position.x === 100 && position.y === 50) return;
       setPosition({ x: 100, y: 50 });
     }
 

@@ -15,8 +15,6 @@ function GalleryLink({ href }: GalleryLinkProps) {
   const isInGallery = pathName === "/gallery";
   const controls = useAnimation();
 
-  console.log(pathName);
-
   async function handleClick(
     e: React.MouseEvent<HTMLAnchorElement, MouseEvent>
   ) {
@@ -63,7 +61,7 @@ function GalleryLink({ href }: GalleryLinkProps) {
 
   return (
     <Link
-      className={`uppercase  font-bold text-[0.85rem] absolute  h-[3rem] md:h-[3.5rem]  top-[1.5rem] right-[1.5rem] md:top-1/2  md:translate-y-[-50%] md:right-[2rem] z-[99999] flex flex-row-reverse items-center`}
+      className={`uppercase  font-bold text-[0.85rem] absolute  h-[2.1rem] md:h-[3.5rem]  top-[1.5rem] right-[1.5rem] md:top-1/2  md:translate-y-[-50%] md:right-[2rem] z-[99999] flex flex-row-reverse items-center`}
       href={href}
       onClick={handleClick}
     >
@@ -74,16 +72,16 @@ function GalleryLink({ href }: GalleryLinkProps) {
         onMouseLeave={handleMouseLeave}
         initial="initial"
         whileHover="hover"
-        className="inline-flex items-center justify-center size-full  p-3 shrink-0  h-[3rem] md:w-[3.5rem] w-[3rem] md:h-[3.5rem]  rounded-full z-10"
+        className="inline-flex items-center justify-center size-full  md:p-3 shrink-0  h-[2.1rem] md:w-[3.5rem] w-[2.1rem] md:h-[3.5rem]  rounded-full z-10"
       >
-        <PiPlusBold fontSize={"1.5rem"} />
+        <PiPlusBold className={"text-[1rem] md:text-[1.5rem]"} />
       </motion.span>
 
       {/* text */}
 
       <motion.span
         animate={controls}
-        className="inline-flex items-center justify-center uppercase  h-full overflow-hidden translate-x-[1.85rem]  rounded-s-full  text-nowrap  bg-white  w-0 border border-gray-300"
+        className="inline-flex items-center justify-center uppercase  h-full overflow-hidden translate-x-[1.05rem]  md:translate-x-[1.85rem]  rounded-s-full  text-nowrap  bg-white  w-0 border border-gray-300"
       >
         {isInGallery ? "Close Gallery" : "View Gallery"}
       </motion.span>

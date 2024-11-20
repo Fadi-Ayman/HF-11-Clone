@@ -9,23 +9,27 @@ import { sleep } from "../_lib/helpers";
 
 
 type CustomLinkProps = {
-  children: string;
+  children: string | React.ReactNode;
   href: string;
-  hasIcon: boolean;
+  hasIcon?: boolean;
   className?: string;
-  hoverColor: string;
+  hoverColor?: string;
   withTransition: boolean;
   linkClassName?:string
+  withAnimation?: boolean;
+  onClick?:() => void
 };
 
 function CustomLink({
-  hasIcon,
+  hasIcon = false,
   className ="",
   href,
   children,
-  hoverColor,
+  hoverColor = "rgba(0, 0, 0, 0)",
   withTransition,
-  linkClassName =""
+  linkClassName ="",
+  withAnimation = true,
+  onClick
 }: CustomLinkProps) {
   const parentVariants: Variants = {
     initial: { opacity: 1 },
@@ -46,7 +50,6 @@ function CustomLink({
     hover: {
       x: [0, "150%", "-150%", 0],
       opacity: [1, 1, 1, 0, 0, 0, 1],
-      scale: 1.03,
       transition: { duration: 0.5 },
     },
   };
@@ -56,6 +59,7 @@ function CustomLink({
   async function handleClick(
     e: React.MouseEvent<HTMLAnchorElement, MouseEvent>
   ) {
+    if(onClick) onClick();
     if (withTransition) {
       e.preventDefault();
       document.body.classList.add("page-transition");
@@ -72,15 +76,15 @@ function CustomLink({
       href={href}
       onClick={handleClick}
     >
-      <motion.span
+      {withAnimation ? <motion.span
         className={`inline-flex size-full justify-between w-full items-center ${className}`}
         variants={parentVariants}
         initial="initial"
         animate="initial"
         whileHover="hover"
       >
-        <span className="inline-block overflow-hidden">
-          <motion.span className="inline-block" variants={childrenVariants}>
+        <span className="inline-block overflow-hidden  ">
+          <motion.span className="inline-block " variants={childrenVariants}>
             {children}
           </motion.span>
         </span>
@@ -95,7 +99,16 @@ function CustomLink({
             </motion.span>
           </span>
         )}
-      </motion.span>
+      </motion.span> : (
+        <span className={`inline-flex size-full justify-between w-full items-center ${className}`}>
+          <span className="inline-block overflow-hidden">{children}</span>
+          {hasIcon && (
+            <span className="inline-flex justify-center items-center overflow-hidden">
+              <MdKeyboardDoubleArrowRight size={20} />
+            </span>
+          )}
+        </span>
+      )}
     </Link>
   );
 }

@@ -1,6 +1,6 @@
 "use client";
 import { Swiper, SwiperRef, SwiperSlide } from "swiper/react";
-import { Swiper as SwiperType } from "swiper"; // Import Swiper type
+import { Swiper as SwiperType } from "swiper"; 
 
 // Import Swiper styles
 import "swiper/css";
@@ -39,10 +39,12 @@ function PageSwiper({
       {images.map((image, index) => (
         <SwiperSlide key={index}>
           <img
-            className={`w-full h-full block sm:object-cover object-cover  `}
+            className={`w-full h-full block object-contain  md:object-cover  `}
             src={image}
             alt="SwipperImage"
           />
+          {/* overlay */}
+          <div className="absolute top-0 left-0 w-full h-full "></div>
         </SwiperSlide>
       ))}
       <CustomPointer />
@@ -52,4 +54,3 @@ function PageSwiper({
 
 export default PageSwiper;
 
-// cursor-[url('/path-to-your-image.png'),_auto]

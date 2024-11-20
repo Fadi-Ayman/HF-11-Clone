@@ -25,7 +25,7 @@ const images = [
 function Gallery() {
   const [activeIndex, setActiveIndex] = useState<number>(0);
   return (
-    <div className="h-screen w-screen relative overflow-hidden">
+    <div className="h-dvh w-dvw relative overflow-hidden">
       <PageSwiper
         images={images}
         activeIndex={activeIndex}
