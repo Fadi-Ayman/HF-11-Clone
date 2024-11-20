@@ -7,7 +7,6 @@ import { sleep } from "../_lib/helpers";
 
 // "bg-red-600  px-6 py-2 text-black h-14 w-[90%] [border-bottom-right-radius:20px] md:w-52"
 
-
 type CustomLinkProps = {
   children: string | React.ReactNode;
   href: string;
@@ -15,21 +14,21 @@ type CustomLinkProps = {
   className?: string;
   hoverColor?: string;
   withTransition: boolean;
-  linkClassName?:string
+  linkClassName?: string;
   withAnimation?: boolean;
-  onClick?:() => void
+  onClick?: () => void;
 };
 
 function CustomLink({
   hasIcon = false,
-  className ="",
+  className = "",
   href,
   children,
   hoverColor = "rgba(0, 0, 0, 0)",
   withTransition,
-  linkClassName ="",
+  linkClassName = "",
   withAnimation = true,
-  onClick
+  onClick,
 }: CustomLinkProps) {
   const parentVariants: Variants = {
     initial: { opacity: 1 },
@@ -37,20 +36,19 @@ function CustomLink({
       backgroundColor: hoverColor,
       transition: {
         duration: 0.4,
-        staggerChildren: 0.2,
+        staggerChildren: 0,
       },
     },
   };
 
   const childrenVariants: Variants = {
     initial: {
-      x: 0,
       opacity: 1,
+      x: "-50%",
     },
     hover: {
-      x: [0, "150%", "-150%", 0],
-      opacity: [1, 1, 1, 0, 0, 0, 1],
-      transition: { duration: 0.5 },
+      x: "0%",
+      transition: { duration: 0.35 },
     },
   };
 
@@ -59,7 +57,7 @@ function CustomLink({
   async function handleClick(
     e: React.MouseEvent<HTMLAnchorElement, MouseEvent>
   ) {
-    if(onClick) onClick();
+    if (onClick) onClick();
     if (withTransition) {
       e.preventDefault();
       document.body.classList.add("page-transition");
@@ -72,35 +70,49 @@ function CustomLink({
 
   return (
     <Link
-      className={`uppercase font-bold text-[0.85rem] ${linkClassName}`}
+      className={`uppercase block  font-bold text-[0.85rem] ${linkClassName}  `}
       href={href}
       onClick={handleClick}
     >
-      {withAnimation ? <motion.span
-        className={`inline-flex size-full justify-between w-full items-center ${className}`}
-        variants={parentVariants}
-        initial="initial"
-        animate="initial"
-        whileHover="hover"
-      >
-        <span className="inline-block overflow-hidden  ">
-          <motion.span className="inline-block " variants={childrenVariants}>
-            {children}
-          </motion.span>
-        </span>
-
-        {hasIcon && (
-          <span className="inline-flex justify-center items-center overflow-hidden">
-            <motion.span
-              className="inline-flex justify-center items-center"
-              variants={childrenVariants}
-            >
-              <MdKeyboardDoubleArrowRight size={20} />
-            </motion.span>
+      {withAnimation ? (
+        <motion.span
+          className={`inline-flex size-full justify-between items-center  ${className} `}
+          variants={parentVariants}
+          initial="initial"
+          animate="initial"
+          whileHover="hover"
+        >
+          
+          <span className="inline-flex justify-evenly overflow-hidden items-center w-fit ">
+            <span className="inline-flex items-center overflow-hidden w-1/2 ">
+              <motion.span
+                className="inline-flex whitespace-nowrap "
+                variants={childrenVariants}
+              >
+                {children}
+                {children}
+              </motion.span>
+            </span>
           </span>
-        )}
-      </motion.span> : (
-        <span className={`inline-flex size-full justify-between w-full items-center ${className}`}>
+
+          {hasIcon && (
+            <span className="inline-flex overflow-hidden  items-center w-fit">
+              <span className="inline-flex items-center overflow-hidden w-1/2 ">
+                <motion.span
+                  className="inline-flex whitespace-nowrap  items-center  "
+                  variants={childrenVariants}
+                >
+                  <MdKeyboardDoubleArrowRight size={20} />
+                  <MdKeyboardDoubleArrowRight size={20} />
+                </motion.span>
+              </span>
+            </span>
+          )}
+        </motion.span>
+      ) : (
+        <span
+          className={`inline-flex size-full justify-between w-full items-center ${className}`}
+        >
           <span className="inline-block overflow-hidden">{children}</span>
           {hasIcon && (
             <span className="inline-flex justify-center items-center overflow-hidden">

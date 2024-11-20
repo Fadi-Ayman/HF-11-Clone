@@ -13,7 +13,7 @@ function IntroBottomNav() {
       y: 0,
       transition: {
         duration: 0.8,
-        delay: 0.2,
+        delay: 1.3,
       },
     },
   };
@@ -40,6 +40,5 @@ function IntroBottomNav() {
     </motion.div>
   );
 }
-
 
 export default IntroBottomNav;

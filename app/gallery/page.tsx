@@ -3,6 +3,7 @@ import PageSwiper from "../_components/PageSwiper";
 import MiniSwiper from "../_components/MiniSwiper";
 import { useState } from "react";
 import GalleryLink from "../_components/GalleryLink";
+import useScreenSize from "../_hooks/useScreenSize";
 
 const images = [
   "../MainGallery/1.avif",
@@ -24,19 +25,23 @@ const images = [
 
 function Gallery() {
   const [activeIndex, setActiveIndex] = useState<number>(0);
+  const { width } = useScreenSize();
+  const miniSwiperCondition = width > 1124;
   return (
-    <div className="h-dvh w-dvw relative overflow-hidden">
+    <div className="h-dvh w-dvw max-h-dvh relative overflow-hidden">
       <PageSwiper
         images={images}
         activeIndex={activeIndex}
         handleImageChange={setActiveIndex}
       />
 
-      <MiniSwiper
-        images={images}
-        activeIndex={activeIndex}
-        handleImageChange={setActiveIndex}
-      />
+      {miniSwiperCondition && (
+        <MiniSwiper
+          images={images}
+          activeIndex={activeIndex}
+          handleImageChange={setActiveIndex}
+        />
+      )}
 
       <GalleryLink href="/" />
     </div>

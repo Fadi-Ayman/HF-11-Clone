@@ -34,12 +34,12 @@ function PageSwiper({
     <Swiper
       ref={swiperRef}
       onSlideChange={onSlideChange}
-      className="w-full h-full relative"
+      className="w-full h-full relative "
     >
       {images.map((image, index) => (
         <SwiperSlide key={index}>
           <img
-            className={`w-full h-full block object-contain  md:object-cover  `}
+            className={`w-full h-full block object-contain  sm:object-cover  `}
             src={image}
             alt="SwipperImage"
           />

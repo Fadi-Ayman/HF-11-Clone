@@ -14,20 +14,8 @@ function AnimatedTitle({ title, className = "" }: AnimatedTitleProps) {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.1,
-        when: "beforeChildren",
-        duration: 0.3,
-      },
-    },
-  };
-  const childrenVariants: Variants = {
-    hidden: { y: 0 },
-    visible: {
-      y: "-100%",
-      transition: {
-        type: "spring",
-        stiffness: 100,
-        damping: 10,
+        delay: 0.8,
+        duration: 1,
       },
     },
   };
@@ -41,7 +29,16 @@ function AnimatedTitle({ title, className = "" }: AnimatedTitleProps) {
     >
       {letters.map((letter, index) => (
         <motion.span
-          variants={childrenVariants}
+          initial={{ y: 0 }}
+          animate={{
+            y: "-100%",
+            transition: {
+              type: "spring",
+              stiffness: 50,
+              damping: 10,
+              delay: index * 0.15 + 1,
+            },
+          }}
           className="inline-block leading-none"
           key={index}
         >
@@ -51,7 +48,16 @@ function AnimatedTitle({ title, className = "" }: AnimatedTitleProps) {
       <br />
       {letters.map((letter, index) => (
         <motion.span
-          variants={childrenVariants}
+          initial={{ y: 0 }}
+          animate={{
+            y: "-100%",
+            transition: {
+              type: "spring",
+              stiffness: 50,
+              damping: 10,
+              delay: index * 0.15 + 1,
+            },
+          }}
           className="inline-block leading-none"
           key={index}
         >

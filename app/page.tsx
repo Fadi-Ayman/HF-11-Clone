@@ -9,7 +9,7 @@ export default function Intro() {
       <IntroVideo />
 
       {/* overlay */}
-      <div className="absolute top-0 left-0 w-full h-full z-1 px-5 md:px-7 py-5 md:py-2 text-white">
+      <div className="absolute top-0 left-0 w-full h-full z-1 px-5 md:px-7 py-9 md:py-2 text-white">
         <AnimatedTitle title="Bespoke" />
         <AnimatedTitle className="ms-[27dvw]" title="Myth" />
         <AnimatedTitle title="Chaos" />

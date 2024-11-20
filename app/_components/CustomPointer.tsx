@@ -79,7 +79,7 @@ const CustomPointer = () => {
             top: position.y,
             left: position.x,
             height: "45px",
-            backgroundColor: "red",
+            backgroundColor: "#dc2626",
             transform: "translate(-50%, -50%)",
             zIndex: 1000,
             display: "flex",
