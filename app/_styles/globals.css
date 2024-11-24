@@ -6,6 +6,11 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+}
+*::-webkit-scrollbar {
+  display: none; /* Hide the scrollbar */
 }
 
 /* Start Page Transition Animations */
@@ -13,12 +18,25 @@ body {
   transition-property: opacity, background, transform, filter;
   transition-timing-function: ease-in-out;
   transition-duration: 1000ms;
+
+  
+}
+
+html {
+  overflow-x: hidden;
+  width: 100vw;
+  width: 100dvw;
+}
+
+.screen{
+  height: 100dvh;
+  overflow:hidden
 }
 
 .page-transition {
   opacity: 0;
   background-color: white;
-  transform: translateY(-100%);
+  transform: translateY(-100dvh);
   filter: blur(12px);
 }
 /* End Page Transition Animations */

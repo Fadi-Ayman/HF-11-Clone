@@ -1,12 +1,19 @@
 "use client";
-import { motion, Variants } from "framer-motion";
+import {  motion, MotionStyle, Variants } from "framer-motion";
 
 type AnimatedTitleProps = {
   title: string;
+  delay?: number;
   className?: string;
+  style?: MotionStyle;
 };
 
-function AnimatedTitle({ title, className = "" }: AnimatedTitleProps) {
+function AnimatedTitle({
+  title,
+  className = "",
+  delay = 1,
+  style={}
+}: AnimatedTitleProps) {
   const letters = title.split("");
 
   const parentVariants: Variants = {
@@ -23,9 +30,10 @@ function AnimatedTitle({ title, className = "" }: AnimatedTitleProps) {
   return (
     <motion.h1
       variants={parentVariants}
+      style={style}
       initial="hidden"
       animate="visible"
-      className={`text-responsive-9xl font-bold text-white uppercase leading-none overflow-hidden w-fit h-responsive-9xl ${className}`}
+      className={` font-bold select-none uppercase leading-none overflow-hidden w-fit   ${className} `}
     >
       {letters.map((letter, index) => (
         <motion.span
@@ -34,9 +42,9 @@ function AnimatedTitle({ title, className = "" }: AnimatedTitleProps) {
             y: "-100%",
             transition: {
               type: "spring",
-              stiffness: 50,
+              stiffness: 30,
               damping: 10,
-              delay: index * 0.15 + 1,
+              delay: index * 0.15 + delay,
             },
           }}
           className="inline-block leading-none"
@@ -53,9 +61,9 @@ function AnimatedTitle({ title, className = "" }: AnimatedTitleProps) {
             y: "-100%",
             transition: {
               type: "spring",
-              stiffness: 50,
+              stiffness: 30,
               damping: 10,
-              delay: index * 0.15 + 1,
+              delay: index * 0.14 + delay,
             },
           }}
           className="inline-block leading-none"

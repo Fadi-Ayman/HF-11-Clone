@@ -9,10 +9,12 @@ export default {
   theme: {
     extend: {
       fontSize: {
-        "responsive-9xl": "clamp(3.5rem, 9dvw, 10rem)",
+        "responsive-9xl": "clamp(3.5rem, 10dvw, 11rem)",
+        "responsive-12xl": "clamp(6.5rem, 18dvw, 18rem)",
       },
       height: {
-        "responsive-9xl": "clamp(3.5rem, 9dvw, 10rem)",
+        "responsive-9xl": "clamp(3.5rem, 10dvw, 11rem)",
+        "responsive-12xl": "clamp(6.5rem, 18dvw, 18rem)",
       },
     },
   },

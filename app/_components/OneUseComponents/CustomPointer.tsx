@@ -3,8 +3,8 @@ import React, { useEffect, useState } from "react";
 import { MdKeyboardDoubleArrowRight } from "react-icons/md";
 import { MdKeyboardDoubleArrowLeft } from "react-icons/md";
 import { AnimatePresence, motion, Variants } from "framer-motion";
-import { sleep } from "../_lib/helpers";
-import useScreenSize from "../_hooks/useScreenSize";
+import { sleep } from "../../_lib/helpers";
+import useScreenSize from "../../_hooks/useScreenSize";
 
 const CustomPointer = () => {
   const { width, height } = useScreenSize();

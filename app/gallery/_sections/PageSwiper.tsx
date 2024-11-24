@@ -1,11 +1,11 @@
 "use client";
 import { Swiper, SwiperRef, SwiperSlide } from "swiper/react";
-import { Swiper as SwiperType } from "swiper"; 
+import { Swiper as SwiperType } from "swiper";
 
 // Import Swiper styles
 import "swiper/css";
 import { useEffect, useRef } from "react";
-import CustomPointer from "./CustomPointer";
+import CustomPointer from "../../_components/OneUseComponents/CustomPointer";
 
 type PageSwiperProps = {
   images: string[];
@@ -53,4 +53,3 @@ function PageSwiper({
 }
 
 export default PageSwiper;
-

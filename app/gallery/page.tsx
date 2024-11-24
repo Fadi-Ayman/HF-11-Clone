@@ -1,6 +1,6 @@
 "use client";
-import PageSwiper from "../_components/PageSwiper";
-import MiniSwiper from "../_components/MiniSwiper";
+import PageSwiper from "./_sections/PageSwiper";
+import MiniSwiper from "./_sections/MiniSwiper";
 import { useState } from "react";
 import GalleryLink from "../_components/GalleryLink";
 import useScreenSize from "../_hooks/useScreenSize";
