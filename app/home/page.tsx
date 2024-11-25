@@ -1,6 +1,6 @@
 "use client";
 
-import { useMotionValueEvent, useScroll } from "motion/react";
+import {  useScroll } from "motion/react";
 import NavBar from "./_sections/navbar/NavBar";
 import HomeSectionOne from "./_sections/HomeSectionOne";
 import { useRef } from "react";
@@ -21,11 +21,11 @@ function Home() {
 
   return (
     <div ref={HomePageRef} className=" relative  ">
-      
+
       <NavBar />
 
       {/* Sticky Sections */}
-      <div className="relative">
+      <div className="relative  ">
       <HomeSectionOne scrollYProgress={scrollYProgress} />
       <HomeSectionTwo  />
       {/* Section 3 in Lg */}

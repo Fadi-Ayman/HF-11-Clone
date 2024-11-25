@@ -35,6 +35,7 @@ function HomeSectionOne({
       <AnimatedTitle
         title="HF"
         delay={3.5}
+        endAnimationInOneSec={false}
         className="absolute top-[4rem] left-[1.5dvw] text-black z-10 text-responsive-12xl h-responsive-12xl "
       />
 
@@ -42,6 +43,7 @@ function HomeSectionOne({
         style={{ translateY: isExtraWide ? textTranslate : 0 }}
         title="11"
         delay={3.5}
+        endAnimationInOneSec={false}
         className="absolute top-[4rem] xl:top-auto xl:bottom-[2rem] right-[1vw] text-black z-10 text-responsive-12xl h-responsive-12xl font-normal"
       />
 

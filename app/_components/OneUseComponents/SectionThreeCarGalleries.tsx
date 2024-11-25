@@ -24,12 +24,12 @@ const childrenVariants: Variants = {
   },
 };
 
-// Single Li Element
-function GalleriesLi({ children }: { children: string }) {
+// Single Li Element for Lg Screens
+function LgGalleriesLi({ children }: { children: string }) {
   return (
     <motion.li
       variants={childrenVariants}
-      className="w-full cursor-pointer hover:text-[1.1rem] gap-[0.7rem] flex items-center justify-start opacity-50 hover:opacity-100 
+      className="w-full tracking-tighter cursor-pointer hover:text-[1.1rem] gap-[0.7rem] flex items-center justify-start opacity-50 hover:opacity-100 
       duration-150
     before:w-0 before:h-[2px] before:bg-black before:block before:transition-all before:duration-200 hover:before:w-[3rem] py-[5px]
     relative group"
@@ -41,22 +41,45 @@ function GalleriesLi({ children }: { children: string }) {
   );
 }
 
-// List (ul)
-function SectionThreeCarGalleries() {
+// Single Li Element for Sm Screens
+function SmGalleriesLi({ children }: { children: string }) {
   return (
-    <motion.ul
-      variants={parentVariants}
-      initial="initial"
-      whileInView="inView"
-      viewport={{ amount: 0.5 }}
-      className="uppercase text-black text-sm font-bold absolute   bottom-[calc(28%)]  
-    flex flex-col gap-[10px]"
-    >
-      {Lis.map((li, index) => (
-        <GalleriesLi key={index}>{li}</GalleriesLi>
-      ))}
-    </motion.ul>
+    <li className="h-full px-[3rem] border-e flex  items-center justify-center hover:text-black hover:bg-[#0000000c] cursor-pointer border-e-[#0003] tracking-tighter">
+      {children}
+    </li>
   );
+}
+
+// List (ul)
+function SectionThreeCarGalleries({
+  isSmallScreen,
+}: {
+  isSmallScreen: boolean;
+}) {
+  if (isSmallScreen) {
+    return (
+      <ul className=" overflow-auto flex  w-full h-[3rem] uppercase font-bold text-xs text-[#00000088]   border-t border-[#0003] ">
+        {Lis.map((li, index) => (
+          <SmGalleriesLi key={index}>{li}</SmGalleriesLi>
+        ))}
+      </ul>
+    );
+  } else {
+    return (
+      <motion.ul
+        variants={parentVariants}
+        initial="initial"
+        whileInView="inView"
+        viewport={{ amount: 0.5 }}
+        className="uppercase text-black text-sm font-bold absolute   bottom-[calc(28%)]  
+      flex flex-col gap-[10px]"
+      >
+        {Lis.map((li, index) => (
+          <LgGalleriesLi key={index}>{li}</LgGalleriesLi>
+        ))}
+      </motion.ul>
+    );
+  }
 }
 
 export default SectionThreeCarGalleries;

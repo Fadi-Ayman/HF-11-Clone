@@ -1,7 +1,7 @@
 "use client";
 
 import { useScroll } from "motion/react";
-import {  useRef } from "react";
+import { useRef } from "react";
 import { useTransform, motion } from "framer-motion";
 import Video from "@/app/_components/Video";
 import SectionThreeCarGalleries from "@/app/_components/OneUseComponents/SectionThreeCarGalleries";
@@ -13,9 +13,8 @@ function HomeSectionThree() {
     target: sectionRef,
     offset: ["start end", "end end"],
   });
-  
+
   const opacity = useTransform(scrollYProgress, [0, 0.5], [0.2, 1]);
-  
 
   return (
     <section
@@ -31,7 +30,7 @@ function HomeSectionThree() {
           className="h-dvh w-full object-cover absolute 
           bottom-0 "
           posterSrc="/HomeImages/sectionThreeVedioPoster.avif"
-          src="/HomeImages/sectionThreeVedio.mp4"
+          src="/HomeImages/SectionThreeVedio.mp4"
           withLoop={false}
         />
 
@@ -42,13 +41,11 @@ function HomeSectionThree() {
         ></span>
 
         {/* car Galleries Uls */}
-        <SectionThreeCarGalleries />
+        <SectionThreeCarGalleries isSmallScreen={false} />
 
         {/* Download Specs */}
 
         <DownloadSpecsLink />
-          
-
       </motion.div>
     </section>
   );

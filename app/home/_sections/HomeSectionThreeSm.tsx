@@ -1,4 +1,5 @@
 import DownloadSpecsLink from "@/app/_components/OneUseComponents/DownloadSpecsLink";
+import SectionThreeCarGalleries from "@/app/_components/OneUseComponents/SectionThreeCarGalleries";
 import Video from "@/app/_components/Video";
 
 function HomeSectionThreeSm() {
@@ -7,16 +8,14 @@ function HomeSectionThreeSm() {
       <div className="size-full  relative bg-[#aeaeaf]  ">
         {/* Vedio */}
         <Video
-          className="   w-full   object-cover   relative 
-          bottom-[calc(0px-50%)] "
           posterSrc="/HomeImages/sectionThreeVedioPoster.avif"
-          src="/HomeImages/sectionThreeVedio.mp4"
+          src="/HomeImages/SectionThreeVedio.mp4"
           withLoop={false}
         />
 
         {/* content */}
-        <div className="bg-white/50 pb-5 flex flex-col gap-2 items-center justify-center">
-          <div className="  w-full h-[4rem] border border-gray-500 ">asdad</div>
+        <div className="bg-white/50 pb-5 pt-1 flex flex-col gap-5 items-center justify-center overflow-hidden">
+          <SectionThreeCarGalleries isSmallScreen={true} />
 
           {/* Download Specs  */}
           <DownloadSpecsLink />

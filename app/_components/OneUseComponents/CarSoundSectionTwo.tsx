@@ -37,7 +37,7 @@ function CarSoundSectionTwo() {
           <motion.p
             initial={{ y: "30px", opacity: 0 }}
             whileInView={{ y: "0px", opacity: 1 }}
-            transition={{ duration: 1.5 }}
+            transition={{ duration: 1 }}
             viewport={{ once: false, margin: "0px 0px -100px 0px" }}
             className="uppercase leading-0 text-3xl"
           >
@@ -48,8 +48,8 @@ function CarSoundSectionTwo() {
         <motion.p
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 0.3 }}
-          viewport={{ once: false, margin: "0px 0px -100px 0px" }}
+          transition={{ duration: 1, delay: 0.5 }}
+          viewport={{ once: false, margin: "0px 0px -200px 0px" }}
           className="uppercase text-xl leading-5"
         >
           where the past <br /> overtakes the future.
@@ -57,7 +57,11 @@ function CarSoundSectionTwo() {
       </div>
 
       {/* Button */}
-      <button
+      <motion.button
+        initial={{ opacity: 0, y: "100%" }}
+        whileInView={{ opacity: 1, y: "0%" }}
+        transition={{ duration: 1 }}
+        viewport={{ once: true }}
         onClick={handlePlaySound}
         aria-label="Play engine sound"
         className="text-sm hover:bg-red-600 duration-500 uppercase flex items-center justify-center bg-white text-black px-4 py-2 rounded-full gap-2"
@@ -66,7 +70,7 @@ function CarSoundSectionTwo() {
         <span className="inline-block mt-[2.64px]">
           <AiFillSound size={15} />
         </span>
-      </button>
+      </motion.button>
     </div>
   );
 }

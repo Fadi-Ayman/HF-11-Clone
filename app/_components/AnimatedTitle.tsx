@@ -1,20 +1,28 @@
 "use client";
-import {  motion, MotionStyle, Variants } from "framer-motion";
+import { motion, MotionStyle, Variants } from "framer-motion";
 
 type AnimatedTitleProps = {
   title: string;
   delay?: number;
   className?: string;
   style?: MotionStyle;
+  endAnimationInOneSec: boolean;
 };
 
 function AnimatedTitle({
   title,
   className = "",
   delay = 1,
-  style={}
+  style = {},
+  endAnimationInOneSec = true,
 }: AnimatedTitleProps) {
   const letters = title.split("");
+
+  const totalDuration = 1;
+  const normalDuration = 0.15;
+  const delayPerLetter = endAnimationInOneSec
+    ? totalDuration / letters.length
+    : normalDuration;
 
   const parentVariants: Variants = {
     hidden: { opacity: 0 },
@@ -44,13 +52,13 @@ function AnimatedTitle({
               type: "spring",
               stiffness: 30,
               damping: 10,
-              delay: index * 0.15 + delay,
+              delay: index * delayPerLetter + delay,
             },
           }}
           className="inline-block leading-none"
           key={index}
         >
-          {letter}
+          {letter === " " ? <>&nbsp;</> : letter}
         </motion.span>
       ))}
       <br />
@@ -63,13 +71,13 @@ function AnimatedTitle({
               type: "spring",
               stiffness: 30,
               damping: 10,
-              delay: index * 0.14 + delay,
+              delay: index * delayPerLetter + delay,
             },
           }}
           className="inline-block leading-none"
           key={index}
         >
-          {letter}
+          {letter === " " ? <>&nbsp;</> : letter}
         </motion.span>
       ))}
     </motion.h1>

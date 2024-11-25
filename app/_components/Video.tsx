@@ -9,7 +9,7 @@ type VedioProps = {
   className?:string
 };
 
-function Video({ src, type = "video/mp4", posterSrc, withLoop ,className}: VedioProps) {
+function Video({ src, type = "video/mp4", posterSrc, withLoop ,className =""}: VedioProps) {
   const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
@@ -22,10 +22,10 @@ function Video({ src, type = "video/mp4", posterSrc, withLoop ,className}: Vedio
     <video
       className={`z-0 object-cover size-full ${className}`}
       poster={posterSrc}
-      autoPlay
+      autoPlay={true}
       loop={withLoop}
-      muted
-      playsInline
+      muted={true}
+      playsInline={true}
     >
       <source src={src} type={type} />
       This browser does not support HTML5 video.
