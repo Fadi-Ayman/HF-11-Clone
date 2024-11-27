@@ -68,7 +68,7 @@ function Sidebar({ isOpen, setIsOpen, MenuBarRef }: SidebarProps) {
               <CustomLink
                 className="py-2 px-10 text-[0.85rem]"
                 hasIcon={false}
-                href="#car-tour"
+                href="#car-tour-sm"
                 withTransition={false}
                 withAnimation={false}
                 onClick={() => setIsOpen(false)}

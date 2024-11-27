@@ -3,9 +3,9 @@
 import { useScroll } from "motion/react";
 import { useRef } from "react";
 import { motion, useTransform } from "framer-motion";
-import CarSoundSectionTwo from "@/app/_components/OneUseComponents/CarSoundSectionTwo";
+import CarSoundOwnership from "@/app/_components/OneUseComponents/CarSoundOwnership";
 
-function HomeSectionTwo() {
+function Ownership() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -16,6 +16,7 @@ function HomeSectionTwo() {
 
   return (
     <section
+    id="ownership"
       ref={sectionRef}
       className=" w-screen h-[calc(80dvh+2rem)]  md:h-[calc(110dvh+2rem)] bg-black  rounded-t-[3rem] sticky top-[-2rem]  overflow-hidden "
     >
@@ -26,9 +27,9 @@ function HomeSectionTwo() {
       ></motion.div>
 
       {/* content & button */}
-      <CarSoundSectionTwo />
+      <CarSoundOwnership />
     </section>
   );
 }
 
-export default HomeSectionTwo;
+export default Ownership;

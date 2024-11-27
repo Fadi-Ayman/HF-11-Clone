@@ -4,10 +4,10 @@ import { useScroll } from "motion/react";
 import { useRef } from "react";
 import { useTransform, motion } from "framer-motion";
 import Video from "@/app/_components/Video";
-import SectionThreeCarGalleries from "@/app/_components/OneUseComponents/SectionThreeCarGalleries";
+import CarTourCarGalleries from "@/app/_components/OneUseComponents/CarTourCarGalleries";
 import DownloadSpecsLink from "@/app/_components/OneUseComponents/DownloadSpecsLink";
 
-function HomeSectionThree() {
+function CarTour() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -18,6 +18,7 @@ function HomeSectionThree() {
 
   return (
     <section
+      id="car-tour"
       ref={sectionRef}
       className="hidden lg:block w-screen h-[calc(130dvh+2rem)]  bg-black rounded-t-[3rem] sticky top-[-2rem] overflow-hidden "
     >
@@ -41,7 +42,7 @@ function HomeSectionThree() {
         ></span>
 
         {/* car Galleries Uls */}
-        <SectionThreeCarGalleries isSmallScreen={false} />
+        <CarTourCarGalleries isSmallScreen={false} />
 
         {/* Download Specs */}
 
@@ -51,4 +52,4 @@ function HomeSectionThree() {
   );
 }
 
-export default HomeSectionThree;
+export default CarTour;

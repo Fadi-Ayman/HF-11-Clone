@@ -51,7 +51,7 @@ function SmGalleriesLi({ children }: { children: string }) {
 }
 
 // List (ul)
-function SectionThreeCarGalleries({
+function CarTourCarGalleries({
   isSmallScreen,
 }: {
   isSmallScreen: boolean;
@@ -82,4 +82,4 @@ function SectionThreeCarGalleries({
   }
 }
 
-export default SectionThreeCarGalleries;
+export default CarTourCarGalleries;

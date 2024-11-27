@@ -4,7 +4,7 @@ import { useEffect, useRef } from "react";
 import { AiFillSound } from "react-icons/ai";
 import { motion } from "framer-motion";
 
-function CarSoundSectionTwo() {
+function CarSoundOwnership() {
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
   useEffect(() => {
@@ -75,4 +75,4 @@ function CarSoundSectionTwo() {
   );
 }
 
-export default CarSoundSectionTwo;
+export default CarSoundOwnership;

@@ -1,7 +1,7 @@
 "use client";
 import AnimatedTitle from "./_components/AnimatedTitle";
 import Video from "./_components/Video";
-import IntroBottomNav from "./_sections/Intro/IntroBottomNav";
+import IntroBottomNav from "./_components/OneUseComponents/IntroBottomNav";
 import { motion, useAnimation } from "framer-motion";
 
 export default function Intro() {

@@ -1,10 +1,13 @@
 import DownloadSpecsLink from "@/app/_components/OneUseComponents/DownloadSpecsLink";
-import SectionThreeCarGalleries from "@/app/_components/OneUseComponents/SectionThreeCarGalleries";
+import SectionThreeCarGalleries from "@/app/_components/OneUseComponents/CarTourCarGalleries";
 import Video from "@/app/_components/Video";
 
-function HomeSectionThreeSm() {
+function CarTourSm() {
   return (
-    <section className="block lg:hidden w-screen  ">
+    <section 
+    id="car-tour-sm"
+
+    className="block lg:hidden w-screen  ">
       <div className="size-full  relative bg-[#aeaeaf]  ">
         {/* Vedio */}
         <Video
@@ -31,4 +34,4 @@ function HomeSectionThreeSm() {
   );
 }
 
-export default HomeSectionThreeSm;
+export default CarTourSm;

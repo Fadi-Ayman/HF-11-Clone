@@ -4,12 +4,12 @@ import {  useScroll } from "motion/react";
 import NavBar from "./_sections/navbar/NavBar";
 import HomeSectionOne from "./_sections/HomeSectionOne";
 import { useRef } from "react";
-import HomeSectionTwo from "./_sections/HomeSectionTwo";
-import HomeSectionThree from "./_sections/HomeSectionThree";
-import HomeSectionFour from "./_sections/HomeSectionFour";
+import Ownership from "./_sections/Ownership";
+import CarTour from "./_sections/CarTour";
+import About from "./_sections/About";
 import HomeSectionFive from "./_sections/HomeSectionFive";
 import Footer from "./_sections/Footer";
-import HomeSectionThreeSm from "./_sections/HomeSectionThreeSm";
+import CarTourSm from "./_sections/CarTourSm";
 import useTouchpadScroll from "../_hooks/useTouchpadScroll";
 
 function Home() {
@@ -27,17 +27,17 @@ function Home() {
       {/* Sticky Sections */}
       <div className="relative  ">
       <HomeSectionOne scrollYProgress={scrollYProgress} />
-      <HomeSectionTwo  />
+      <Ownership  />
       {/* Section 3 in Lg */}
-      <HomeSectionThree  />
+      <CarTour  />
       </div>
 
       {/* Section 3 in sm (not Sticky) */}
-      <HomeSectionThreeSm   />
+      <CarTourSm   />
 
 
       {/* Normal sections */}
-      <HomeSectionFour  />
+      <About  />
       <HomeSectionFive  />
 
       <Footer  />
