@@ -10,7 +10,7 @@ function AboutMainImages({
   const imagesContainerWidth = useTransform(
     scrollYProgress,
     [0.05, 0.2],
-    ["100dvw", "50dvw"]
+    ["100%", "50%"]
   );
   const imagesContainerScale = useTransform(
     scrollYProgress,
@@ -41,65 +41,63 @@ function AboutMainImages({
   );
   const thirdParagraphOpacity = useTransform(
     scrollYProgress,
-    [0.6, 0.61],
+    [0.8, 0.81],
     [0.5, 1]
   );
 
   return (
-    <div className="size-full hidden md:block  bg-black">
-      <motion.div
-        style={{ width: imagesContainerWidth, scale: imagesContainerScale }}
-        className="  h-[100dvh] bg-no-repeat sticky top-0 overflow-hidden"
-      >
-        {/* images */}
-        <img
-          className="w-full h-[120dvh] object-cover  object-[0%]"
-          src="/HomeImages/SectionFourMainImageOne.avif"
-          alt="1st Image"
-        />
+    <motion.div
+      style={{ minWidth: imagesContainerWidth }}
+      className="  w-full  h-[100dvh] select-none hidden lg:block  sticky top-0 overflow-hidden"
+    >
+      {/* images */}
+      <motion.img
+        style={{ scale: imagesContainerScale }}
+        className="w-full ps-5 h-[120dvh] object-cover  object-[0%]"
+        src="/HomeImages/SectionFourMainImageOne.avif"
+        alt="1st Image"
+      />
 
-        <motion.img
-          style={{ translateY: secondImageTranslate }}
-          className="w-full  duration-500 h-[100dvh] object-cover  object-[50%]"
-          src="/HomeImages/SectionFourMainImageTwo.avif"
-          alt="2nd Image"
-        />
+      <motion.img
+        style={{ translateY: secondImageTranslate }}
+        className="w-full  duration-500 h-[100dvh] object-cover  object-[50%]"
+        src="/HomeImages/SectionFourMainImageTwo.avif"
+        alt="2nd Image"
+      />
 
-        <motion.img
-          style={{ translateY: thirdImageTranslate }}
-          className="w-full duration-500  h-[100dvh] object-cover  object-[50%]"
-          src="/HomeImages/SectionFourMainImageThree.avif"
-          alt="3rd Image"
-        />
+      <motion.img
+        style={{ translateY: thirdImageTranslate }}
+        className="w-full duration-500  h-[100dvh] object-cover  object-[50%]"
+        src="/HomeImages/SectionFourMainImageThree.avif"
+        alt="3rd Image"
+      />
 
-        {/* overLay */}
-        <div className="bg-[#00000040] w-full h-[100dvh] absolute top-0">
-
-          {/* CONTENT */}
-          <div className="absolute top-1/2 right-1/2  -translate-y-1/2 bg-black mix-blend-difference text-white font-bold uppercase  w-fit ">
-            <p className="text-sm  opacity-50 duration-500 ">About</p>
-            <motion.p
-              style={{ opacity: firstParagraphOpacity }}
-              className="text-2xl duration-500 "
-            >
-              maniacs
-            </motion.p>
-            <motion.p
-              style={{ opacity: secondParagraphOpacity }}
-              className="text-2xl duration-500 "
-            >
-              Mission
-            </motion.p>
-            <motion.p
-              style={{ opacity: thirdParagraphOpacity }}
-              className="text-2xl duration-500 "
-            >
-              Machine
-            </motion.p>
-          </div>
+      {/* overLay */}
+      <div className=" w-full h-[100dvh] absolute top-0">
+        {/* CONTENT */}
+        <div className="absolute top-1/2 right-1/2  -translate-y-1/2  bg-black mix-blend-difference text-white font-bold uppercase  w-fit ">
+          <p className="text-sm  opacity-50 duration-500 ">About</p>
+          <motion.p
+            style={{ opacity: firstParagraphOpacity }}
+            className="text-2xl duration-500 "
+          >
+            maniacs
+          </motion.p>
+          <motion.p
+            style={{ opacity: secondParagraphOpacity }}
+            className="text-2xl duration-500 "
+          >
+            Mission
+          </motion.p>
+          <motion.p
+            style={{ opacity: thirdParagraphOpacity }}
+            className="text-2xl duration-500 "
+          >
+            Machine
+          </motion.p>
         </div>
-      </motion.div>
-    </div>
+      </div>
+    </motion.div>
   );
 }
 

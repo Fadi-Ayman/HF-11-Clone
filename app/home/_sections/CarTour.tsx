@@ -35,10 +35,15 @@ function CarTour() {
           withLoop={false}
         />
 
-        {/* Gradient for make a smooth transition color between video and bg */}
+        {/* Gradient for make a smooth transition color between video and bg (top) */}
         <span
           className="block absolute bottom-[calc(50%+5rem)] z-[100] w-full h-[20rem] 
           bg-gradient-to-b from-[#aeaeaf] via-[#b9b9b9] to-[#aeaeaf00] mix-blend-luminosity "
+        ></span>
+          {/* Gradient for make a smooth transition color between video and bg (bottom) */}
+        <span
+          className="block absolute bottom-0 left-0 w-full h-[10rem] 
+          bg-gradient-to-b from-[#aeaeaf00] via-[#ffffff7e] to-[#fff] "
         ></span>
 
         {/* car Galleries Uls */}

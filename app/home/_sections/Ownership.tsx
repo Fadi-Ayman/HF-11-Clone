@@ -18,7 +18,7 @@ function Ownership() {
     <section
     id="ownership"
       ref={sectionRef}
-      className=" w-screen h-[calc(80dvh+2rem)]  md:h-[calc(110dvh+2rem)] bg-black  rounded-t-[3rem] sticky top-[-2rem]  overflow-hidden "
+      className=" w-screen h-[calc(100dvh+2rem)]  md:h-[calc(110dvh+2rem)] bg-black  rounded-t-[3rem] sticky top-[-2rem]  overflow-hidden "
     >
       {/* Image */}
       <motion.div

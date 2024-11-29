@@ -1,30 +1,42 @@
-"use client"
+"use client";
 import AboutContent from "@/app/_components/OneUseComponents/AboutContent";
 import AboutMainImages from "@/app/_components/OneUseComponents/AboutMainImages";
-import { useScroll } from "motion/react";
+import { useScroll, motion, useTransform } from "motion/react";
 import { useRef } from "react";
-
 
 function About() {
   const sectionRef = useRef<HTMLDivElement>(null);
-  const {scrollYProgress} = useScroll({target:sectionRef,offset:["start end","end end"]})
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end end"],
+  });
+
+  const sectionTranslate = useTransform(
+    scrollYProgress,
+    [0, 0.1],
+    ["1%", "0%"]
+  );
 
   return (
-    <section 
-    id="about"
-    ref={sectionRef} className="w-screen h-[1000dvh] bg-blue-500  ">
+    <motion.section
+      style={{ translateY: sectionTranslate }}
+      id="about"
+      ref={sectionRef}
+      className="w-screen flex justify-start  overflow-visible h-fit lg:h-[900dvh] bg-white   "
+    >
 
-      <div className="flex justify-start   h-full">
+
+
+
         {/* MainImages */}
-        <AboutMainImages scrollYProgress={scrollYProgress}/>
+        <AboutMainImages scrollYProgress={scrollYProgress} />
+
+
 
         {/* Content */}
-      <AboutContent  scrollYProgress={scrollYProgress}/>
+        <AboutContent  />
 
-      </div>
-
-
-    </section>
+    </motion.section>
   );
 }
 

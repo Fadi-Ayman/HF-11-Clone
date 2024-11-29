@@ -8,12 +8,12 @@
   box-sizing: border-box;
 
   /* scrollBar */
-  scrollbar-width: none; 
-  -ms-overflow-style: none; 
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 
 *::-webkit-scrollbar {
-  display: none; 
+  display: none;
 }
 
 /* Start Page Transition Animations */
@@ -21,7 +21,6 @@ body {
   transition-property: opacity, background, transform, filter;
   transition-timing-function: ease-in-out;
   transition-duration: 1000ms;
-
 }
 .page-transition {
   opacity: 0;
@@ -31,15 +30,14 @@ body {
 }
 /* End Page Transition Animations */
 
-
 html {
-  /* overflow-x: hidden; */
+  overflow-x: hidden;
   width: 100vw;
   width: 100dvw;
 }
 
-.screen{
+.screen {
   height: 100vh;
   height: 100dvh;
-  overflow:hidden
+  overflow: hidden;
 }

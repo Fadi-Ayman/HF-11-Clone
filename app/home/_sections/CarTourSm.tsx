@@ -29,6 +29,8 @@ function CarTourSm() {
           className="block absolute top-[-6rem]  w-full h-[12rem] 
           bg-gradient-to-b from-[#a1a1a15b] via-[#a2a2a2] to-[#aeaeaf00] mix-blend-luminosity "
         ></span>
+
+      
       </div>
     </section>
   );
