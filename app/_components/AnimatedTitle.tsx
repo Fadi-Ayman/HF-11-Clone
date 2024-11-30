@@ -55,7 +55,7 @@ function AnimatedTitle({
               delay: index * delayPerLetter + delay,
             },
           }}
-          className="inline-block leading-none"
+          className="inline-block leading-none will-change-transform"
           key={index}
         >
           {letter === " " ? <>&nbsp;</> : letter}
@@ -74,7 +74,7 @@ function AnimatedTitle({
               delay: index * delayPerLetter + delay,
             },
           }}
-          className="inline-block leading-none"
+          className="inline-block leading-none will-change-transform"
           key={index}
         >
           {letter === " " ? <>&nbsp;</> : letter}

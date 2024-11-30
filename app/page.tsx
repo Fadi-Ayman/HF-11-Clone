@@ -24,7 +24,7 @@ export default function Intro() {
       />
 
       {/* overlay */}
-      <div className="absolute top-0 left-0 w-full h-full  px-5 md:px-7 py-9 md:py-4 text-white z-10">
+      <div className="absolute top-0 left-0 w-full h-full  px-5 md:px-7 py-9  md:py-4 text-white z-10">
         <AnimatedTitle
         endAnimationInOneSec={true}
           className="text-responsive-9xl h-responsive-9xl"

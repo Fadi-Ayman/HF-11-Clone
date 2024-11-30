@@ -1,4 +1,4 @@
-import CustomLink from "../../../_components/CustomLink";
+import CustomLink from "../CustomLink";
 
 function NavLinks() {
   return (

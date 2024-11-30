@@ -32,7 +32,7 @@ function AnimatedTitleInView({
     >
       {letters.map((letter, index) => (
         <motion.span
-          className={`inline-block leading-none `}
+          className={`inline-block leading-none will-change-transform `}
           key={index}
           initial={{ y: 0 }}
           whileInView={{
@@ -60,7 +60,7 @@ function AnimatedTitleInView({
             delay: index * delayPerLetter + delay,
           }}
           animate={controls}
-          className={`inline-block leading-none `}
+          className={`inline-block leading-none will-change-transform `}
           key={index}
         >
           {letter === " " ? <>&nbsp;</> : letter}

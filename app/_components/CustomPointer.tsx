@@ -1,39 +1,70 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { RefObject, useEffect, useState } from "react";
 import { MdKeyboardDoubleArrowRight } from "react-icons/md";
 import { MdKeyboardDoubleArrowLeft } from "react-icons/md";
 import { AnimatePresence, motion, Variants } from "framer-motion";
-import { sleep } from "../../_lib/helpers";
-import useScreenSize from "../../_hooks/useScreenSize";
+import useScreenSize from "../_hooks/useScreenSize";
+import { sleep } from "../_lib/helpers";
+import { SwiperRef } from "swiper/react";
 
-const CustomPointer = () => {
+const CustomPointer = ({
+  place,
+  ParentRef,
+}: {
+  place: "gallery" | "home";
+  ParentRef: RefObject<HTMLDivElement> | RefObject<SwiperRef>;
+}) => {
   const { width, height } = useScreenSize();
   const [position, setPosition] = useState({
-    x: width / 2,
-    y: height / 2,
+    x: place === "gallery" ? (width > 500 ? width / 2 : 100) : 0,
+    y: place === "gallery" ? (width > 500 ? height / 2 : 100) : 0,
   });
-  const [isFirstTime, setIsFirstTime] = useState(true);
-  const showCondition = position.x < width - 150 && position.y < height - 200;
+  const [isFirstTime, setIsFirstTime] = useState(place === "gallery");
+  const [isMouseInRef, setIsMouseInRef] = useState(false);
 
-  // Track the mouse position
+  const showConditionGallery =
+    position.x < width - 150 && position.y < height - 200;
+  const showConditionHome = width > 500 && isMouseInRef;
+  const showCondition =
+    place === "gallery" ? showConditionGallery : showConditionHome;
+
   useEffect(() => {
     const handleMouseMove = async (e: MouseEvent) => {
-      await sleep(50);
-      setPosition({ x: e.clientX, y: e.clientY });
-      setIsFirstTime(false);
-    };
+      if (!ParentRef.current) return;
+      // @ts-ignore
+      if (!ParentRef.current?.contains(e.target as Node)) {
+        setIsMouseInRef(false);
+        return;
+      }
 
-    if (width < 768) {
-      if (position.x === 100 && position.y === 50) return;
-      setPosition({ x: 100, y: 50 });
-    }
+      setIsMouseInRef(true);
+
+      const parentRect = (
+        ParentRef.current as HTMLElement
+      ).getBoundingClientRect();
+
+      if (
+        e.clientX >= parentRect.left &&
+        e.clientX <= parentRect.right &&
+        e.clientY >= parentRect.top &&
+        e.clientY <= parentRect.bottom
+      ) {
+        // Mouse is inside the parent
+        const relativeX = e.clientX - parentRect.left;
+        const relativeY = e.clientY - parentRect.top;
+
+        await sleep(50);
+        setPosition({ x: relativeX, y: relativeY });
+        setIsFirstTime(false);
+      }
+    };
 
     window.addEventListener("mousemove", handleMouseMove);
 
     return () => {
       window.removeEventListener("mousemove", handleMouseMove);
     };
-  }, [position.x, position.y, width]);
+  }, [ParentRef]);
 
   const parentVariants: Variants = {
     hidden: { opacity: 0, width: "0px" },
@@ -89,13 +120,13 @@ const CustomPointer = () => {
             fontWeight: "bold",
             pointerEvents: "none",
             fontSize: "0.85rem",
-            gap: width < 550 ? "8px" : "5px",
+            gap: width < 550 && place === "gallery" ? "8px" : "5px",
             overflow: "hidden",
           }}
         >
           <span
             style={{
-              rotate: width < 550 ? "120deg" : "0deg",
+              rotate: width < 550 && place === "gallery" ? "120deg" : "0deg",
             }}
             className="inline-flex justify-center items-center overflow-hidden"
           >
@@ -104,10 +135,12 @@ const CustomPointer = () => {
             </motion.span>
           </span>
 
-          <span>{width < 550 ? "Flip" : "drag"}</span>
+          <span>{width < 550 && place === "gallery" ? "Flip" : "drag"}</span>
 
           <span
-            style={{ rotate: width < 550 ? "120deg" : "0deg" }}
+            style={{
+              rotate: width < 550 && place === "gallery" ? "120deg" : "0deg",
+            }}
             className="inline-flex justify-center items-center overflow-hidden"
           >
             <motion.span variants={childVariantsTwo} className="inline-block">

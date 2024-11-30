@@ -3,7 +3,7 @@ import FormButton from "@/app/_components/FormButton";
 
 function HomeSectionFive() {
   return (
-    <section className="w-screen   h-[85dvh] relative md:h-[155dvh]  bg-[#ebebed]  overflow-hidden">
+    <section className="w-screen min-h-[35rem]  h-[85dvh] relative md:h-[155dvh]  bg-[#ebebed]  overflow-hidden">
       {/* Content */}
       <div className="z-[100] relative text-[#202020] ps-[5%] md:ps-[3%] pt-[2rem] md:pt-[2rem] ">
         <AnimatedTitleInView

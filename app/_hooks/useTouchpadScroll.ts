@@ -1,13 +1,7 @@
 import { useEffect } from "react";
-import useScreenSize from "./useScreenSize";
 
 const useTouchpadScroll = () => {
-    const { width } = useScreenSize();
-
-
-
   useEffect(() => {
-    if(width < 600) return;
     const handleScroll = (event: WheelEvent) => {
       let deltaY = event.deltaY;
       if (deltaY === 100 || deltaY === -100) return;

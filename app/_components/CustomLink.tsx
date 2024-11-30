@@ -86,7 +86,7 @@ function CustomLink({
     >
       {withAnimation ? (
         <motion.span
-          className={`inline-flex size-full justify-between gap-[0.5rem] items-center px-5  ${className} `}
+          className={`inline-flex size-full will-change-transform justify-between gap-[0.5rem] items-center px-5  ${className} `}
           variants={parentVariants}
           initial="initial"
           animate="initial"
@@ -95,7 +95,7 @@ function CustomLink({
           <span className="inline-flex justify-evenly overflow-hidden items-center w-fit ">
             <span className="inline-flex items-center overflow-hidden w-full ">
               <motion.span
-                className="inline-flex whitespace-nowrap "
+                className="inline-flex whitespace-nowrap will-change-transform "
                 variants={childrenVariants}
               >
                 <span className="  overflow-hidden">{children}</span>
@@ -108,7 +108,7 @@ function CustomLink({
             <span className="inline-flex overflow-hidden  items-center w-fit">
               <span className="inline-flex items-center overflow-hidden   ">
                 <motion.span
-                  className="inline-flex whitespace-nowrap  items-center  "
+                  className="inline-flex whitespace-nowrap  items-center  will-change-transform"
                   variants={childrenVariants}
                 >
                   <span className="  overflow-hidden">

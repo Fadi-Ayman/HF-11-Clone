@@ -48,12 +48,12 @@ function AboutMainImages({
   return (
     <motion.div
       style={{ minWidth: imagesContainerWidth }}
-      className="  w-full  h-[100dvh] select-none hidden lg:block  sticky top-0 overflow-hidden"
+      className="  w-full duration-200 will-change-[width]  h-[100dvh] select-none hidden lg:block  sticky top-0 overflow-hidden"
     >
       {/* images */}
       <motion.img
         style={{ scale: imagesContainerScale }}
-        className="w-full ps-5 h-[120dvh] object-cover  object-[0%]"
+        className="w-full ps-2 h-[120dvh] object-cover  object-[0%]"
         src="/HomeImages/SectionFourMainImageOne.avif"
         alt="1st Image"
       />

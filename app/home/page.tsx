@@ -1,7 +1,7 @@
 "use client";
 
-import {  useScroll } from "motion/react";
-import NavBar from "./_sections/navbar/NavBar";
+import { useScroll } from "motion/react";
+import NavBar from "../_components/navbar/NavBar";
 import HomeSectionOne from "./_sections/HomeSectionOne";
 import { useRef } from "react";
 import Ownership from "./_sections/Ownership";
@@ -12,35 +12,34 @@ import Footer from "./_sections/Footer";
 import CarTourSm from "./_sections/CarTourSm";
 import useTouchpadScroll from "../_hooks/useTouchpadScroll";
 
+
 function Home() {
-  useTouchpadScroll() // to reduce scroll sensitivity on touchpad & touchscreen
+  useTouchpadScroll(); // Reduce scroll sensitivity on touchpad & touchscreen
   const HomePageRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: HomePageRef,
   });
 
   return (
-    <div ref={HomePageRef} className=" relative  ">
-
+    <div ref={HomePageRef} className="relative">
       <NavBar />
 
       {/* Sticky Sections */}
-      <div className="relative  ">
-      <HomeSectionOne scrollYProgress={scrollYProgress} />
-      <Ownership  />
-      {/* Section 3 in Lg */}
-      <CarTour  />
+      <div className="relative">
+        <HomeSectionOne scrollYProgress={scrollYProgress} />
+        <Ownership />
+        {/* Section 3 in Lg */}
+        <CarTour />
       </div>
 
       {/* Section 3 in sm (not Sticky) */}
-      <CarTourSm   />
-
+      <CarTourSm />
 
       {/* Normal sections */}
-      <About  />
-      <HomeSectionFive  />
+      <About />
+      <HomeSectionFive />
 
-      <Footer  />
+      <Footer />
     </div>
   );
 }

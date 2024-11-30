@@ -21,7 +21,7 @@ function HomeSectionOne({
   );
 
   return (
-    <section className="w-screen mx-auto  h-dvh bg-[#eaeceb] sticky top-0  overflow-hidden">
+    <section className="w-screen mx-auto  h-dvh min-h-[35rem] bg-[#eaeceb] sticky top-0  overflow-hidden">
       <motion.img
         initial={{ y: "-100%" }}
         animate={{ y: isWide ? "5%" : "20%" }}
@@ -34,7 +34,7 @@ function HomeSectionOne({
 
       <AnimatedTitle
         title="HF"
-        delay={3.5}
+        delay={3}
         endAnimationInOneSec={false}
         className="absolute top-[4rem] left-[1.5dvw] text-black z-10 text-responsive-12xl h-responsive-12xl "
       />
@@ -42,7 +42,7 @@ function HomeSectionOne({
       <AnimatedTitle
         style={{ translateY: isExtraWide ? textTranslate : 0 }}
         title="11"
-        delay={3.5}
+        delay={3}
         endAnimationInOneSec={false}
         className="absolute top-[4rem] xl:top-auto xl:bottom-[2rem] right-[1vw] text-black z-10 text-responsive-12xl h-responsive-12xl font-normal"
       />

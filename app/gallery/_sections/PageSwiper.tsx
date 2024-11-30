@@ -5,7 +5,7 @@ import { Swiper as SwiperType } from "swiper";
 // Import Swiper styles
 import "swiper/css";
 import { useEffect, useRef } from "react";
-import CustomPointer from "../../_components/OneUseComponents/CustomPointer";
+import CustomPointer from "@/app/_components/CustomPointer";
 
 type PageSwiperProps = {
   images: string[];
@@ -47,7 +47,7 @@ function PageSwiper({
           <div className="absolute top-0 left-0 w-full h-full "></div>
         </SwiperSlide>
       ))}
-      <CustomPointer />
+      <CustomPointer place="gallery" ParentRef={swiperRef} />
     </Swiper>
   );
 }

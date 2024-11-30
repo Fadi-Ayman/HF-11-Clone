@@ -17,7 +17,7 @@ function NavLinksMini() {
   }, [isOpen]);
 
   return (
-    <div className="  flex justify-center items-center  size-fit md:hidden">
+    <div className="  flex justify-center items-center  size-fit  md:hidden">
       <MenuBar isOpen={isOpen} MenuBarRef={menuRef} setIsOpen={setIsOpen} />
       <Sidebar isOpen={isOpen} MenuBarRef={menuRef} setIsOpen={setIsOpen} />
     </div>

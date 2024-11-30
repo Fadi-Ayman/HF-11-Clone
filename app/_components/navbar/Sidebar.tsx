@@ -1,7 +1,7 @@
 "use client";
 import { AnimatePresence, motion } from "framer-motion";
 import { Dispatch, RefObject, useEffect, useRef } from "react";
-import CustomLink from "../../../_components/CustomLink";
+import CustomLink from "../CustomLink";
 
 type SidebarProps = {
   isOpen: boolean;
@@ -28,7 +28,7 @@ function Sidebar({ isOpen, setIsOpen, MenuBarRef }: SidebarProps) {
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
-  },[]);
+  }, []);
 
   return (
     // overlay

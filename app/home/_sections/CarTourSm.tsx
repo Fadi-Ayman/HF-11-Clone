@@ -17,7 +17,7 @@ function CarTourSm() {
         />
 
         {/* content */}
-        <div className="bg-white/50 pb-5 pt-1 flex flex-col gap-5 items-center justify-center overflow-hidden">
+        <div className="bg-white/70 pb-5 flex flex-col gap-5 items-center justify-center overflow-hidden">
           <SectionThreeCarGalleries isSmallScreen={true} />
 
           {/* Download Specs  */}

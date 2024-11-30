@@ -25,7 +25,7 @@ body {
 .page-transition {
   opacity: 0;
   background-color: white;
-  transform: translateY(-100dvh);
+  transform: translateY(-20dvh);
   filter: blur(12px);
 }
 /* End Page Transition Animations */
