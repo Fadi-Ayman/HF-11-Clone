@@ -1,5 +1,12 @@
 import type { Metadata } from "next";
 import "./_styles/globals.css";
+import { Geist } from "next/font/google";
+
+const geist = Geist({
+  subsets: ["latin"],
+  display: "swap",
+  adjustFontFallback: false,
+});
 
 export const metadata: Metadata = {
   title: "HF-11 Clone",
@@ -13,9 +20,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={``}>
-        {children}
-      </body>
+      <body className={`${geist.className}`}>{children}</body>
     </html>
   );
 }

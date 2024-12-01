@@ -25,7 +25,9 @@ function AboutContentReusableSection({
     <section className={`flex flex-col w-full gap-6 lg:gap-14 ${className}`}>
       {/* Title */}
       {title && (
-        <h2 className="uppercase text-responsive-5xl font-bold leading-none tracking-tighter">{title}</h2>
+        <h2 className="uppercase text-responsive-5xl font-bold leading-none tracking-tighter">
+          {title}
+        </h2>
       )}
 
       {/* description */}
@@ -41,7 +43,7 @@ function AboutContentReusableSection({
       {/* bottom Left */}
       {bottomLeftText && bottomRightText && (
         <div className="flex lg:gap-[20%] lg:justify-start lg:flex-row flex-col gap-3  ">
-          <p className="text-sm font-bold leading-none">
+          <p className="text-sm font-bold leading-none uppercase">
             {bottomLeftText?.split(" ").map((word, index) => (
               <Fragment key={index}>
                 {word}

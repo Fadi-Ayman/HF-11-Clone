@@ -18,11 +18,11 @@ function CarTour() {
 
   return (
     <section
-      id="car-tour"
       ref={sectionRef}
       className="hidden lg:block w-screen h-[calc(130dvh+2rem)]  bg-black rounded-t-[3rem] sticky top-[-2rem] overflow-hidden "
     >
       <motion.div
+      id="car-tour"
         className="size-full  relative  rounded-t-[inherit] bg-[#aeaeaf]  "
         style={{ opacity }}
       >

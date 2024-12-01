@@ -16,12 +16,13 @@ function Ownership() {
 
   return (
     <section
-    id="ownership"
       ref={sectionRef}
       className=" w-screen h-[calc(100dvh+2rem)]  md:h-[calc(110dvh+2rem)] bg-black  rounded-t-[3rem] sticky top-[-2rem]  overflow-hidden "
     >
       {/* Image */}
       <motion.div
+          id="ownership"
+
         style={{ opacity }}
         className="bg-[url('/HomeImages/SecondSectionImage2.avif')]  lg:bg-[url('/HomeImages/SecondSectionImage.avif')]  bg-cover bg-no-repeat bg-center size-full  "
       ></motion.div>

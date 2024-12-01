@@ -37,7 +37,7 @@ function IntroBottomNav({handleMouseLeave,handleMouseEnter}:IntroBottomNavProps)
       <CustomLink
         hasIcon={true}
         href="/home"
-        hoverColor="#16a34a"
+        hoverColor="#25ff55"
         className="bg-red-600   py-2 text-black h-14  [border-bottom-right-radius:20px] "
         withTransition={true}
         linkClassName={`w-[90%] sm:w-[25%] md:w-52`}

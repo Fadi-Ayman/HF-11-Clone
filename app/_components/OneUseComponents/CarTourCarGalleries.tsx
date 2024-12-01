@@ -1,5 +1,7 @@
 "use client";
 import { motion, Variants } from "framer-motion";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 const Lis = ["power", "origin", "beauty", "asylum", "obsession", "strength"];
 
@@ -9,7 +11,7 @@ const parentVariants: Variants = {
     opacity: 1,
     transition: {
       when: "beforeChildren",
-      staggerChildren: 0.2,
+      staggerChildren: 0.15,
     },
   },
 };
@@ -26,8 +28,11 @@ const childrenVariants: Variants = {
 
 // Single Li Element for Lg Screens
 function LgGalleriesLi({ children }: { children: string }) {
+  const router = useRouter();
+
   return (
     <motion.li
+      onClick={() => router.push(`gallery/${children}`)}
       variants={childrenVariants}
       className="w-full tracking-tighter cursor-pointer hover:text-[1.1rem] gap-[0.7rem] flex items-center justify-start opacity-50 hover:opacity-100 
       duration-150
@@ -43,19 +48,19 @@ function LgGalleriesLi({ children }: { children: string }) {
 
 // Single Li Element for Sm Screens
 function SmGalleriesLi({ children }: { children: string }) {
+  const router = useRouter();
   return (
-    <li className="h-full px-[3rem] border-e flex  items-center justify-center hover:text-black hover:bg-[#0000000c] cursor-pointer border-e-[#0003] tracking-tighter">
+    <li
+      onClick={() => router.push(`gallery/${children}`)}
+      className="h-full px-[3rem] border-e flex  items-center justify-center hover:text-black hover:bg-[#0000000c] cursor-pointer border-e-[#0003] tracking-tighter"
+    >
       {children}
     </li>
   );
 }
 
 // List (ul)
-function CarTourCarGalleries({
-  isSmallScreen,
-}: {
-  isSmallScreen: boolean;
-}) {
+function CarTourCarGalleries({ isSmallScreen }: { isSmallScreen: boolean }) {
   if (isSmallScreen) {
     return (
       <ul className=" overflow-auto flex  w-full h-[3rem] uppercase font-bold text-xs text-[#00000088]   border-t border-[#0003] ">

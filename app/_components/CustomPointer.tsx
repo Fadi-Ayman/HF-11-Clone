@@ -16,14 +16,14 @@ const CustomPointer = ({
 }) => {
   const { width, height } = useScreenSize();
   const [position, setPosition] = useState({
-    x: place === "gallery" ? (width > 500 ? width / 2 : 100) : 0,
-    y: place === "gallery" ? (width > 500 ? height / 2 : 100) : 0,
+    x: place === "gallery" ? (width > 500 ? width / 2 : 70) : 0,
+    y: place === "gallery" ? (width > 500 ? height / 2 : 110) : 0,
   });
   const [isFirstTime, setIsFirstTime] = useState(place === "gallery");
   const [isMouseInRef, setIsMouseInRef] = useState(false);
 
   const showConditionGallery =
-    position.x < width - 150 && position.y < height - 200;
+    position.x < width - 150  && position.y < height - 180 
   const showConditionHome = width > 500 && isMouseInRef;
   const showCondition =
     place === "gallery" ? showConditionGallery : showConditionHome;

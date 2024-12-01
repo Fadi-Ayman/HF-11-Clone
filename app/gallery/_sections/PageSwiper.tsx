@@ -11,12 +11,14 @@ type PageSwiperProps = {
   images: string[];
   activeIndex: number;
   handleImageChange: React.Dispatch<React.SetStateAction<number>>;
+  isOpen: boolean;
 };
 
 function PageSwiper({
   images,
   activeIndex = 0,
   handleImageChange,
+  isOpen,
 }: PageSwiperProps) {
   const swiperRef = useRef<SwiperRef>(null);
 
@@ -39,15 +41,15 @@ function PageSwiper({
       {images.map((image, index) => (
         <SwiperSlide key={index}>
           <img
-            className={`w-full h-full block object-contain  sm:object-cover  `}
+            className={`w-full select-none h-full block object-contain  sm:object-cover  `}
             src={image}
             alt="SwipperImage"
           />
           {/* overlay */}
-          <div className="absolute top-0 left-0 w-full h-full "></div>
+          <div className="absolute select-none top-0 left-0 w-full h-full "></div>
         </SwiperSlide>
       ))}
-      <CustomPointer place="gallery" ParentRef={swiperRef} />
+      {!isOpen && <CustomPointer place="gallery" ParentRef={swiperRef} />}
     </Swiper>
   );
 }

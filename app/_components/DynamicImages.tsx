@@ -7,8 +7,11 @@ type DynamicImagesProps = {
   className?: string;
 };
 
-
-function DynamicImages({ delayInSec, images, className ="" }: DynamicImagesProps) {
+function DynamicImages({
+  delayInSec = 1,
+  images,
+  className = "",
+}: DynamicImagesProps) {
   const [activeImage, setActiveImage] = useState<string>(images[0]);
   const [pause, setPause] = useState<boolean>(false);
   const IndexRef = useRef<number>(0);
@@ -28,9 +31,13 @@ function DynamicImages({ delayInSec, images, className ="" }: DynamicImagesProps
     <div
       onMouseEnter={() => setPause(true)}
       onMouseLeave={() => setPause(false)}
-      className={`size-52 select-none ${className}`}
+      className={` select-none ${className}`}
     >
-      <img className="size-full " src={activeImage} alt={"Image"} />
+      <img
+        className="size-full object-cover "
+        src={activeImage}
+        alt={"Image"}
+      />
     </div>
   );
 }

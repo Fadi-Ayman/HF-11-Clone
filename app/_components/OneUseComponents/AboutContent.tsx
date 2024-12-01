@@ -11,17 +11,13 @@ import AboutContentOneImages from "./AboutContentOneImages";
 import AboutContentTwoSwiper from "./AboutContentTwoSwiper";
 import DynamicImages from "../DynamicImages";
 
-// Width become 50% at Progress 0.2
 
 function AboutContent() {
   return (
     <div className="size-full   overflow-hidden  lg:mt-[180dvh]">
-
-
       {/* Sections Container */}
+
       <div className="overflow-hidden py-5 px-[6%] lg:px-[7.5%]">
-
-
         {/* Section one */}
         <AboutContentReusableSection
           title="maniacs"
@@ -72,7 +68,7 @@ function AboutContent() {
         <AboutContentReusableSection
           className="mt-20"
           withSeparator={false}
-          bottomLeftText={"DIVERGENT PAST"}
+          bottomLeftText={"Time Machine"}
           bottomRightText="Do you believe in time machines? Neither did we, until we built one. A gateway to the purest era of motorsport. Timeless process and materials, an escaped science experiment from an alternate reality. Few go back to go forward. It would have been insane for us not to."
           bottomRightSize="normal"
         >
@@ -96,8 +92,6 @@ function AboutContent() {
           />
         </AboutContentReusableSection>
       </div>
-
-
     </div>
   );
 }

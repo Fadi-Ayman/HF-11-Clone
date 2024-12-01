@@ -4,7 +4,7 @@ function NavLinks() {
   return (
     <ul className=" gap-2 hidden md:flex items-center justify-center">
       <li className="size-fit">
-        <CustomLink hasIcon={false} href="/gallery" withTransition={true}>
+        <CustomLink hasIcon={false} href="/gallery/car" withTransition={true}>
           Gallery
         </CustomLink>
       </li>

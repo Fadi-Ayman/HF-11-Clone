@@ -11,6 +11,7 @@ import HomeSectionFive from "./_sections/HomeSectionFive";
 import Footer from "./_sections/Footer";
 import CarTourSm from "./_sections/CarTourSm";
 import useTouchpadScroll from "../_hooks/useTouchpadScroll";
+import FormButton from "../_components/FormButton";
 
 
 function Home() {
@@ -40,6 +41,8 @@ function Home() {
       <HomeSectionFive />
 
       <Footer />
+
+      <FormButton size={"lg"} />
     </div>
   );
 }
