@@ -12,8 +12,7 @@ import Footer from "./Footer";
 import HomeSectionFive from "./HomeSectionFive";
 import HomeSectionOne from "./HomeSectionOne";
 import Ownership from "./Ownership";
-
-
+import ToastProvider from "@/app/_components/Toast";
 
 function HomeClient() {
   useTouchpadScroll(); // Reduce scroll sensitivity on touchpad & touchscreen
@@ -43,9 +42,12 @@ function HomeClient() {
 
       <Footer />
 
+      {/* Form */}
       <FormButton size={"lg"} />
+      {/* Toaster */}
+      <ToastProvider />
     </div>
   );
 }
 
-export default HomeClient
+export default HomeClient;

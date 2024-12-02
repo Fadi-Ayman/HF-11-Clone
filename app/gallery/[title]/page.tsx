@@ -1,21 +1,18 @@
 import { GalleryItem, galleryTitle } from "@/app/_types/Types";
 import GalleryClient from "../_sections/GalleryClient";
 import { Metadata } from "next";
-const baseUrl ="https://hf-11-clone.vercel.app"
+const baseUrl = "https://hf-11-clone.vercel.app";
 
 type Props = {
-  params: Promise<{ title: galleryTitle }>
-}
+  params: Promise<{ title: galleryTitle }>;
+};
 
-export async function generateMetadata(
-  { params }: Props,
-): Promise<Metadata> {
-  const title = (await params).title
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const title = (await params).title;
   return {
     title: `Gallery - ${title.toUpperCase()}`,
-  }
+  };
 }
-
 
 export default async function Gallery({
   params,

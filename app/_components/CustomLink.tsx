@@ -35,7 +35,7 @@ function CustomLink({
   onMouseEnter,
   onMouseLeave,
   onClick,
-  props
+  props,
 }: CustomLinkProps) {
   const parentVariants: Variants = {
     initial: { opacity: 1 },
@@ -68,9 +68,9 @@ function CustomLink({
     if (withTransition) {
       e.preventDefault();
       document.body.classList.add("page-transition");
-      await sleep(700);
+      await sleep(1000);
       router.push(href);
-      await sleep(700);
+      await sleep(1000);
       document.body.classList.remove("page-transition");
     }
   }
