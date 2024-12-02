@@ -30,7 +30,7 @@ function CarSoundOwnership() {
   };
 
   return (
-    <div className="absolute top-[calc(100vh-65dvh)] md:top-1/2 right-0 md:right-[9%] transform -translate-x-1/2 -translate-y-1/2 text-white font-bold flex justify-between  items-start flex-col h-[60dvh] tracking-tighter ring-0">
+    <div className="absolute top-[calc(100vh-65dvh)] md:top-1/2 left-[35%] md:left-auto md:right-[9%] transform -translate-x-1/2 -translate-y-1/2 text-white font-bold flex justify-between  items-start flex-col h-[60dvh] tracking-tighter ring-0">
       {/* Content */}
       <div className="flex flex-col gap-3">
         <h4 className="h-[31px] overflow-hidden">

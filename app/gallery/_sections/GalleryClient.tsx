@@ -11,10 +11,10 @@ import GalleryOverlay from "./GalleryOverlay";
 type GalleryClientProps = {
   images: string[];
   title?: galleryTitle;
-  text: string;
+  description?: string;
 };
 
-function GalleryClient({ images, title, text }: GalleryClientProps) {
+function GalleryClient({ images, title, description }: GalleryClientProps) {
   const [activeIndex, setActiveIndex] = useState<number>(0);
   const { width } = useScreenSize();
   const miniSwiperCondition = width > 1124;
@@ -39,13 +39,15 @@ function GalleryClient({ images, title, text }: GalleryClientProps) {
 
       {!isOpen && <GalleryLink place="insideGallery" />}
 
-      <GalleryOverlay
-        title={title}
-        images={images}
-        text={text}
-        isOpen={isOpen}
-        setIsOpen={setIsOpen}
-      />
+      {title !== "car" && (
+        <GalleryOverlay
+          title={title}
+          images={images}
+          description={description}
+          isOpen={isOpen}
+          setIsOpen={setIsOpen}
+        />
+      )}
     </div>
   );
 }

@@ -1,4 +1,5 @@
 
+// Dynamic Images
 export const TimerImagesOne = [
   "/HomeImages/TimerImagesOne/1.jpg",
   "/HomeImages/TimerImagesOne/2.jpg",
@@ -43,3 +44,5 @@ export const AboutContentTwoSwiperImages = [
   "/HomeImages/SectionFourSwiperImages/2.jpg",
   "/HomeImages/SectionFourSwiperImages/3.jpg",
 ]
+
+// end Dynamic Images

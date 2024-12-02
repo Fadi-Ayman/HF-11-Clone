@@ -1,8 +1,9 @@
 "use client";
 import { Swiper, SwiperSlide, SwiperRef } from "swiper/react";
-import { Swiper as SwiperType } from "swiper"; // Import Swiper type
+import { Swiper as SwiperType } from "swiper";
 import { useEffect, useRef } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import { usePathname } from "next/navigation";
 
 type PageSwiperProps = {
   images: string[];
@@ -22,6 +23,8 @@ function MiniSwiper({
   handleImageChange,
 }: PageSwiperProps) {
   const swiperRef = useRef<MySwiper>(null);
+  const pathName = usePathname();
+  const isCarGallery = pathName === "/gallery/car";
 
   useEffect(() => {
     if (swiperRef.current?.swiper) {
@@ -39,7 +42,7 @@ function MiniSwiper({
         initial={{ bottom: "-100%" }}
         animate={{ bottom: "1.5%" }}
         exit={{ bottom: "-100%" }}
-        transition={{ duration: 1, delay: 2 }}
+        transition={{ duration: 1, delay: isCarGallery ? 1 : 2.8 }}
         className={` absolute  h-[135px] w-1/2 bottom-[0.8rem] right-[0.5rem]  z-999  `}
       >
         <Swiper
@@ -47,7 +50,7 @@ function MiniSwiper({
           onSlideChange={onSlideChange}
           slidesPerView={3}
           spaceBetween={10}
-          className="size-full"
+          className="size-full   "
         >
           {images.map((image, index) => (
             <SwiperSlide
@@ -55,7 +58,7 @@ function MiniSwiper({
                 index === activeIndex
                   ? "filter-none opacity-90 md:opacity-100"
                   : "[filter:grayscale(100%)] scale-90 opacity-35 md:opacity-70"
-              } duration-200 relative`}
+              } duration-200 relative `}
               onClick={() => handleImageChange(index)}
               key={index}
             >

@@ -5,13 +5,13 @@ import { sleep } from "@/app/_lib/helpers";
 import { galleryTitle } from "@/app/_types/Types";
 import { AnimatePresence, Variants, motion } from "motion/react";
 import { useRouter } from "next/navigation";
-import { Dispatch, SetStateAction } from "react";
+import { Dispatch, SetStateAction, useState } from "react";
 // Variants Under component
 
 type GalleryOverlayProps = {
   images: string[];
   title?: galleryTitle;
-  text: string;
+  description?: string;
   isOpen: boolean;
   setIsOpen: Dispatch<SetStateAction<boolean>>;
 };
@@ -19,20 +19,23 @@ type GalleryOverlayProps = {
 function GalleryOverlay({
   title,
   images,
-  text,
+  description,
   isOpen,
   setIsOpen,
 }: GalleryOverlayProps) {
   const router = useRouter();
+  const [isBackButtonClicked, setIsBackButtonClicked] = useState(false);
 
   async function handleBackButton() {
     setIsOpen(false);
-    await sleep(2800);
-    router.back();
+    setIsBackButtonClicked(true);
   }
 
   return (
-    <AnimatePresence mode="wait">
+    <AnimatePresence
+      onExitComplete={isBackButtonClicked ? () => router.back() : undefined}
+      mode="wait"
+    >
       {isOpen && (
         <div
           className={`absolute  top-0 left-0 size-full z-[9999999] bg-cover `}
@@ -79,7 +82,7 @@ function GalleryOverlay({
               variants={TextVariants}
               className="w-[90%] max-h-[25%] pb-2 sm:w-[80%] mx-auto overflow-scroll text-[17px] font-normal text-gray-500 leading-5"
             >
-              {text}
+              {description}
             </motion.p>
 
             {/* flying back btn */}

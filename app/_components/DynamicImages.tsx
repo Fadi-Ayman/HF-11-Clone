@@ -31,7 +31,7 @@ function DynamicImages({
     <div
       onMouseEnter={() => setPause(true)}
       onMouseLeave={() => setPause(false)}
-      className={` select-none ${className}`}
+      className={` select-none ${className} `}
     >
       <img
         className="size-full object-cover "

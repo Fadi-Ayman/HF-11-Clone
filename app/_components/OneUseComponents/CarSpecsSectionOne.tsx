@@ -28,42 +28,42 @@ function CarSpecsSectionOne() {
       <br />
 
       <div className="px-1">
-        <div className="flex w-full text-white justify-between items-center text-2xl border-b border-gray-600 py-3 italic font-normal">
+        <div className="flex w-full text-white justify-between items-center text-2xl border-b border-gray-600 py-3  font-normal">
           <AnimatedTitle
             title="1,950"
             delay={3.6}
             endAnimationInOneSec={false}
-            className=" text-white  text-2xl h-[24px] font-normal px-1"
+            className=" text-white  text-2xl h-[24px] font-normal "
           />
           <p>Weight (LBS)</p>
         </div>
 
-        <div className="flex w-full text-white justify-between items-center text-2xl border-b border-gray-600 py-3 italic font-normal">
+        <div className="flex w-full text-white justify-between items-center text-2xl border-b border-gray-600 py-3  font-normal">
           <AnimatedTitle
             title="3.2"
             delay={3.7}
             endAnimationInOneSec={false}
-            className=" text-white  text-2xl h-[24px] font-normal px-1"
+            className=" text-white  text-2xl h-[24px] font-normal "
           />
           <p>Seconds (0-60)</p>
         </div>
 
-        <div className="flex w-full text-white justify-between items-center text-2xl border-b border-gray-600 py-3 italic font-normal">
+        <div className="flex w-full text-white justify-between items-center text-2xl border-b border-gray-600 py-3  font-normal">
           <AnimatedTitle
             title="12,000"
             delay={3.8}
             endAnimationInOneSec={false}
-            className=" text-white  text-2xl h-[24px] font-normal px-1"
+            className=" text-white  text-2xl h-[24px] font-normal "
           />
           <p>RPM</p>
         </div>
 
-        <div className="flex w-full text-white justify-between items-center text-2xl  py-3 italic font-normal">
+        <div className="flex w-full text-white justify-between items-center text-2xl  py-3  font-normal">
           <AnimatedTitle
             title="650"
             delay={3.9}
             endAnimationInOneSec={false}
-            className=" text-white  text-2xl h-[24px] font-normal px-1"
+            className=" text-white  text-2xl h-[24px] font-normal "
           />
           <p>HP</p>
         </div>
