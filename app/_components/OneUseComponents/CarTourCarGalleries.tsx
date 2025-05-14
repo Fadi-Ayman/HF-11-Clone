@@ -1,6 +1,5 @@
 "use client";
 import { motion, Variants } from "framer-motion";
-import Link from "next/link";
 import { useRouter } from "next/navigation";
 
 const Lis = ["power", "origin", "beauty", "asylum", "obsession", "strength"];

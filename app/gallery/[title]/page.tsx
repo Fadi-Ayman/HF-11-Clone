@@ -1,7 +1,8 @@
 import { GalleryItem, galleryTitle } from "@/app/_types/Types";
 import GalleryClient from "../_sections/GalleryClient";
 import { Metadata } from "next";
-const baseUrl = "https://hf-11-clone.vercel.app";
+import { GALLERY_DATA } from "@/data/db";
+
 
 type Props = {
   params: Promise<{ title: galleryTitle }>;
@@ -20,10 +21,20 @@ export default async function Gallery({
   params: Promise<{ title: galleryTitle }>;
 }) {
   const { title } = await params;
-  const res = await fetch(`${baseUrl}/api/gallery?title=${title}`);
-  const [{ images, description }]: [GalleryItem] = await res.json();
+
+  const matchedItem = GALLERY_DATA.find(
+    (item) => item.title.toLowerCase() === title.toLowerCase()
+  );
+
+  if (!matchedItem) {
+    throw new Error("Gallery item not found");
+  }
 
   return (
-    <GalleryClient images={images} title={title} description={description} />
+    <GalleryClient
+      images={matchedItem.images}
+      title={matchedItem.title as galleryTitle}
+      description={matchedItem.description}
+    />
   );
 }
